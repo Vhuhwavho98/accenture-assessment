@@ -6,16 +6,23 @@
     background-image: url('../src/assets/images/confidence.jpeg');
     background-size: cover;
     background-repeat: no-repeat;
-    height: fit-content;
-    min-height: 50vh;
-    width: 100vw;
 
     /* Responsive background size */
     @media (max-width: 768px) {
         background-size: cover;
+
     }
 }
 
+.btn-height{
+  min-height: 250px !important;
+  height: 250px !important;
+
+}
+
+.carousel-status{
+  display: none;
+}
 @font-face {
     font-family: "light";
     src: url("../src/assets/fonts/fonts/Inter-Light.ttf");

@@ -6,23 +6,23 @@ import Home from './pages/home';
 import Header from './common/header';
 import Services from './pages/services';
 import Industries from './pages/industries';
+import Cases from './pages/cases';
 
 
 const App = () => {
   return (
-    
+    <>
     <Router>
-      <div>
-        <Header/>
+      <div className=" min-h-screen relative">
+        <Header />
         <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="industries" element={<Industries />} />
-        <Route path="services" element={<Services/>} />
-
+          <Route path="/" element={<Home />} />
+          <Route path="industries" element={<Industries />} />
+          <Route path="services" element={<Services />} />
         </Routes>
-        <Footer/>
       </div>
     </Router>
+            <Footer /></>
   );
 };
 

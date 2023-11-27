@@ -21,18 +21,21 @@ const ContactModal = (props) => {
             !submit ? 
             ( <div className="bg-white w-[50%] h-fit relative">
             <button className="absolute right-0 mx-2 my-1" onClick={onClose}>Close</button>
-           <form className="py-4 px-2">
-            <div className="grid-cols-2 my-1 lh:my-2">
-                <div className="col-span-1 mb-1">
+           <form className="py-4 mx-auto px-6">
+            <div>
+                <p className="lg:text-[28px] text-[14px] ">Contact form</p>
+            </div>
+            <div className="grid-cols-2 my-1 lg:my-2 mx-4 px-5">
+                <div className="col-span-1 mb-1 mx-5">
                     <label htmlFor="subject" className="mx-1">Subject:</label>
                     <br />
-                    <input type="text" id="subject" className="border-none bg-indigo-400 rounded-[5px] focus:border-none hover:border-none"/>
+                    <input type="text" id="subject" className="border-[1px] border-gray-400 bg-none rounded-[5px] focus:border-none hover:border-none"/>
                 </div>
                 <div className="col-span-1 mb-1">
                 </div>
             </div>
             <div className="mx-auto">
-                <button type="submit" onClick={handleSubmit}>Submit</button>
+                <button type="submit" onClick={handleSubmit} className="bg-">Submit</button>
             </div>
            </form>
         </div>) :
