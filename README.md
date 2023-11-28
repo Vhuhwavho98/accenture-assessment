@@ -33,8 +33,7 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 Install tailwindcss via npm, and create your tailwind.config.js file :
 Follow this link for tailwind configurations.
-
--> https://tailwindcss.com/docs/installation
+https://tailwindcss.com/docs/installation
 
 
 
