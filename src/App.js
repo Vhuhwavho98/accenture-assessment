@@ -6,7 +6,6 @@ import Home from './pages/home';
 import Header from './common/header';
 import Services from './pages/services';
 import Industries from './pages/industries';
-import Cases from './pages/cases';
 
 
 const App = () => {

@@ -1,9 +1,19 @@
 import { useState } from "react";
 
+import { IoMdClose } from "react-icons/io";
+
 const ContactModal = (props) => {
     const { isOpen, onClose, contactInfo } = props;
 
     const [submit,setSubmit]=useState(false)
+
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        message: ''
+      });
+    
+
     const handleSubmit=()=>{
         setSubmit(true)
         return(
@@ -19,25 +29,66 @@ const ContactModal = (props) => {
            
            {
             !submit ? 
-            ( <div className="bg-white w-[50%] h-fit relative">
-            <button className="absolute right-0 mx-2 my-1" onClick={onClose}>Close</button>
-           <form className="py-4 mx-auto px-6">
-            <div>
-                <p className="lg:text-[28px] text-[14px] ">Contact form</p>
+            ( <div className="bg-white w-[50%] h-fit relative py-2">
+           <div className="my-1">
+           <IoMdClose className="absolute right-0 mx-2 my-1 top-0" onClick={onClose} />
             </div>
-            <div className="grid-cols-2 my-1 lg:my-2 mx-4 px-5">
-                <div className="col-span-1 mb-1 mx-5">
-                    <label htmlFor="subject" className="mx-1">Subject:</label>
-                    <br />
-                    <input type="text" id="subject" className="border-[1px] border-gray-400 bg-none rounded-[5px] focus:border-none hover:border-none"/>
+            <div className="grid grid-cols-2 px-5 mx-2 mt-2">
+                <div className="col-span-2 text-center">
+                   <p> Fill the form for our attention</p>
                 </div>
-                <div className="col-span-1 mb-1">
+                <div className="col-span-1">
+                    <div className="col-span-2">
+                    <label htmlFor="email">Email</label>
+                    <input
+                        type="text"
+                        id="email"
+                        value={formData.email}
+                        onChange={(e) => {
+                            setFormData({
+                            ...formData,
+                            email: e.target.value  // Update the 'name' field in the state
+                            });
+                        }}
+                        />
+                    </div>
+                    <div className="col-span-2">
+                    <label htmlFor="email">Email</label>
+                    <input
+                        type="text"
+                        id="email"
+                        value={formData.email}
+                        onChange={(e) => {
+                            setFormData({
+                            ...formData,
+                            email: e.target.value  // Update the 'name' field in the state
+                            });
+                        }}
+                        />
+                    </div>
                 </div>
+                <div className="col-span-1">
+                    <div className="col-span-2">
+                    <label htmlFor="email">Email</label>
+                    <input
+                        type="text"
+                        id="email"
+                        value={formData.email}
+                        onChange={(e) => {
+                            setFormData({
+                            ...formData,
+                            email: e.target.value  // Update the 'name' field in the state
+                            });
+                        }}
+                        />
+                    </div>
+    
+                </div>
+                <div className="col-span-2 items-center text-center mt-2">
+                    <button onClick={onClose} className="text-white bg-slate-500 rounded-[25px] px-4 py-2">Submit</button>
+
+                    </div>
             </div>
-            <div className="mx-auto">
-                <button type="submit" onClick={handleSubmit} className="bg-">Submit</button>
-            </div>
-           </form>
         </div>) :
         (
         <div className="bg-white w-[50%] h-[150px] text-center py-5 relative">   

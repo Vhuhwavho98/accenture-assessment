@@ -6,10 +6,13 @@
     background-image: url('../src/assets/images/confidence.jpeg');
     background-size: cover;
     background-repeat: no-repeat;
+    min-width: 100%;
+    min-height: 100%; 
+    background-position: center; 
 
     /* Responsive background size */
     @media (max-width: 768px) {
-        background-size: cover;
+      background-size: cover;
 
     }
 }

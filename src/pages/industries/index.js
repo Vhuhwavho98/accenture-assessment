@@ -1,6 +1,6 @@
 const Industries=()=>{
     return(
-            <>Industries</>
+            <>This page will have industries content</>
     )
 }
 
