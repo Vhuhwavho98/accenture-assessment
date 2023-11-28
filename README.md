@@ -29,6 +29,15 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
+### `Install tailwind css`
+
+Install tailwindcss via npm, and create your tailwind.config.js file :
+Follow this link for tailwind configurations.
+
+-> https://tailwindcss.com/docs/installation
+
+
+
 ### `npm run eject`
 
 **Note: this is a one-way operation. Once you `eject`, you can't go back!**
