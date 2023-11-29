@@ -7,6 +7,7 @@ const ContactModal = (props) => {
     const { isOpen, onClose, contactInfo } = props;
 
     const [submit,setSubmit]=useState(false)
+    const [isValid,setisValid]=useState(false)
     const [notEmpty,setNotEmpty]=useState(false)
 
     const [formData, setFormData] = useState({
@@ -19,13 +20,23 @@ const ContactModal = (props) => {
       });
     
 
-    const handleSubmit=()=>{
-        setSubmit(true)
-        return(
-            <></>
-        )
-    }
-
+      const handleSubmit = () => {
+        if (isValid) {
+          setSubmit(true);
+          onClose();
+        }
+      };
+    
+      const handleIsFormValid = () => {
+        setisValid(
+          formData.address !== "" &&
+            formData.email !== "" &&
+            formData.city !== "" &&
+            formData.selectedGender !== ""
+        );
+        }
+    
+    
     const handleGender = (e) => {
         setFormData({
           ...formData,
@@ -36,21 +47,23 @@ const ContactModal = (props) => {
         <div className="fixed top-0 inset-0 z-10 overflow-y-auto">
         <div
             className="flex justify-center items-center overflow-x-hidden overflow-y-auto fixed inset-0 z-[99]
-     bg-gray-500 bg-opacity-75 h-screen w-screen top-0 left-0"
+     bg-gray-500 bg-opacity-75 h-screen w-screen top-0 left-0 px-4 py-2"
         >
            
-           {
+        <div className="mx-auto py-2">
+        {
             !submit ? 
-            ( <div className="bg-white w-[50%] h-fit relative py-2">
+            (
+                 <div className="bg-white  h-fit relative py-4">
            <div className="my-1">
            <IoMdClose className="absolute right-0 mx-2 my-1 top-0" onClick={onClose} />
             </div>
             <div className="grid grid-cols-1 px-5 mx-2 mt-2 items-center align-middle">
                 <div className="col-span-1 text-center">
-                   <p>Simple form</p>
+                   <p className="font-bold">Simple form</p>
                 </div>
                     <div className="col-span-1 my-1">
-                    <label htmlFor="name">Name</label> <br/>
+                    <label htmlFor="name" className="font-bold">Name</label> <br/>
                     <input
                         type="text"
                         id="name"
@@ -62,12 +75,12 @@ const ContactModal = (props) => {
                             });
                             setNotEmpty(true)
                         }}
-                        className={`border ${notEmpty ? 'bg-[#70259B] ' : 'border-red-500'} p-2 rounded`}
+                        className={`border ${!notEmpty ? 'border-gray-400 border-[1px]' : ' border-[#70259B] border-[1px]'} p-2 rounded`}
                        
                         />
                     </div>
                     <div className="col-span-1 my-1">
-                    <label htmlFor="email">Email</label> <br/>
+                    <label htmlFor="email" className="font-bold">Email</label> <br/>
                     <input
                         type="text"
                         id="email"
@@ -78,11 +91,11 @@ const ContactModal = (props) => {
                             email: e.target.value  // Update the 'name' field in the state
                             });
                         }}
-                        className=""
+                        className={`border ${!notEmpty ? 'border-gray-400 border-[1px]' : ' border-[#70259B] border-[1px]'} p-2 rounded`}
                         />
                     </div>
                 <div className="col-span-1 my-1">
-                    <label htmlFor="address">Address</label> <br/>
+                    <label htmlFor="address" className="font-bold">Address</label> <br/>
                     <input
                         type="text"
                         id="address"
@@ -93,19 +106,22 @@ const ContactModal = (props) => {
                             address: e.target.value  // Update the 'name' field in the state
                             });
                         }}
+                        className={`border ${!notEmpty ? 'border-gray-400 border-[1px]' : ' border-[#70259B] border-[1px]'} p-2 rounded`}
+
                         />
                 </div>
-                <div className="col-span-1 my-1">
-                    <label htmlFor="city">Select your city</label> <br/>
+                <div className="col-span-1 py-1">
+                    <label htmlFor="city" className=" font-bold">Select your city</label> <br/>
                     <select
                         onChange={(e) => {
                             setFormData({
                             ...formData,
                             city: e.target.value,
                             });
-                        }}
+                        }} 
+                        className={`w-full bg-white border ${!notEmpty ? 'border-gray-400 border-[1px]' : ' border-[#70259B] border-[1px]'} p-2 rounded`}
                         >
-                       <option value="">Select a country</option>
+                       <option value="" className="bg-white font-bold">Select a country</option>
                             {countries.map((country, index) => (
                                 <option key={index} value={country.name}>
                                 {country.name}
@@ -114,7 +130,7 @@ const ContactModal = (props) => {
                         </select>
                 </div>
                 <div>
-                    <label htmlFor="gender">Gender</label>
+                    <label htmlFor="gender" className=" font-bold">Gender</label>
                     {Gender.map((data, index) => (
                         <div key={index}>
                         <input
@@ -137,9 +153,9 @@ const ContactModal = (props) => {
                         </div>
                         <div className="right-1 text-end absolute"> 
                         <button
-                            onClick={onClose}
-                            disabled={!notEmpty}
-                            className={`border ${notEmpty ? 'bg-[#70259B] text-white rounded-[25px] py-2 px-1' : 'bg-[#ccc8ce] text-gray-500 cursor-not-allowed'} font-displayBlack`}
+                            onClick={handleIsFormValid}
+                            disabled={isValid}
+                            className={`border ${!isValid? 'bg-[#70259B] text-white rounded-[25px] py-2 px-1' : 'bg-[#ccc8ce] text-gray-500 cursor-not-allowed'} font-displayBlack`}
                             >
                             Submit form
                             </button>
@@ -155,6 +171,7 @@ const ContactModal = (props) => {
         </div>)
            }
 
+        </div>
 </div>
 
 </div>    

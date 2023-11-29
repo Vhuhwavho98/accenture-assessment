@@ -16,7 +16,7 @@ const ContactUs = () => {
         </div>
         <div className="col-span-1 right-2">
         <div className="relative text-end items-center">
-          <div className="right-2">
+          <div className="left-0">
           <span>22 Street Name, Suburb, 8000,</span><br/>
         <span>Cape Town, South Africa</span><br/>
         <a >+27 21 431 0001</a><br/>

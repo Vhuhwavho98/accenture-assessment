@@ -52,3 +52,21 @@
   src: url("../src/assets/fonts/fonts/Inter-ExtraBold.ttf") format('ttf');
   font-display: swap;
 }
+
+.loading-line {
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  color: #333; /* Adjust the color as needed */
+  margin: 20px 0;
+}
+/* styles.css */
+
+.transition-text {
+  font-size: 16px;
+  transition: color 0.3s ease-in-out; /* Define the transition property */
+}
+
+.transition-text.hovered {
+  color: #ff5733; /* Change the color on hover */
+}

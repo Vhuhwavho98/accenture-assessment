@@ -11,20 +11,26 @@ import GenericCard from "../../components/Cards/genericCard";
 import LabelCard from "../../components/Cards/labelCard";
 
 const Cases = () => {
-    const [dataList, setdataList] = useState([]);
-    const [showCase,setshowCase]=useState(false)
+  const [dataList, setdataList] = useState([]);
+  const [showCase,setshowCase]=useState(false)
+  const [isHovered, setIsHovered] = useState(false);
 
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+  };
     useEffect(() => {
         getData("https://zm6zxgq6hyhe3smi5krzsrk2fu0iidhh.lambda-url.us-east-1.on.aws/")
             .then((data) => {
                 console.log(data);
                 setdataList(data);
                 setshowCase(true)
-                // Do something with the data
             })
             .catch((error) => {
                 console.error(error);
-                // Handle the error
             });
     }, []);
 
@@ -67,27 +73,7 @@ const Cases = () => {
                   itemClass="px-2"
                   className="text-white"
                 >
-                  
-                {/* {dataList.map((item, index) => (
-                      <div
-                      key={index}
-                      className="lg:py-4 py-2 col-span-1 align-baseline content-baseline  relative text-start  my-1 mx-1 lg:mx-1 lg:px-8 px-4 lg:h-[450px] lg:max-h-[450px] max-h-[250px] h-[250px]"
-                      style={{
-                          backgroundImage: `url(${item.imageUrl})`,
-                          backgroundRepeat: 'no-repeat',
-                          backgroundSize: 'cover',
-                          minHeight:'100%',
-                          minWidth:'100%',
-                          backgroundPosition:'center'
-                      }}
-                      >            
-                  <div className="bottom-0 left-1 absolute lg:mb-4 mb-2 lg:pb-4 pb-2 lg:mx-8 mx-4">   
-                      <div className="h-[3px] lg:h-[5px] lg:w-[60px] w-[25px] lg:mt-4 mt-2 bg-[#D100C9] my-1"></div>{" "}
-                      <h2>{item.title}</h2>
-                      <p>{item.description}</p> 
-                  </div>
-                  </div>
-                  ))} */}
+                
                   <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4">
       {dataList.map((item, index) => (
         <GenericCard
@@ -96,14 +82,19 @@ const Cases = () => {
           content={item.description}
           imageUrl={item.imageUrl}
           onClick={() => {
-            // Add click event logic if needed
           }}
         >
         <LabelCard title={item.title} description={item.content}/>
         </GenericCard>
       ))}
     </div>
-        </Carousel> :<>Wait a moment for us to check if we have anything new</>
+        </Carousel> :
+        <p 
+        className={`text-[#9939D0] text-center font-semibold transition-text ${isHovered ? "hovered" : ""}`}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+    
+        >Wait a moment for us to check if we have anything new</p>
                  }
         </div> 
     </div>
