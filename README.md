@@ -2,6 +2,11 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## NodeJS
+
+In order to run this project you must have Node 14 or any version higher than 14
+
+
 ## Available Scripts
 
 In the project directory, you can run:
