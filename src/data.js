@@ -106,3 +106,33 @@ export const ServiesOffered=[
 
 
  ]
+
+ export const countries=[
+    {
+        name: 'Afghanistan',
+        code: 'AF', 
+      },
+      {
+        name: 'Albania',
+        code: 'AL',
+      },
+      {
+        name: 'Algeria',
+        code: 'DZ',
+      },
+ ]
+
+ export const Gender=[
+    {
+        name: 'Female',
+        code: 'F', 
+      },
+      {
+        name: 'Male',
+        code: 'M',
+      },
+      {
+        name: 'Other',
+        code: 'O',
+      },
+ ]

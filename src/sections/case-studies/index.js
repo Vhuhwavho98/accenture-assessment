@@ -7,6 +7,8 @@ import { Carousel } from 'react-responsive-carousel';
 import { getData } from "../../Appservices";
 // Loads the carousel styling
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import GenericCard from "../../components/Cards/genericCard";
+import LabelCard from "../../components/Cards/labelCard";
 
 const Cases = () => {
     const [dataList, setdataList] = useState([]);
@@ -26,12 +28,13 @@ const Cases = () => {
             });
     }, []);
 
+    console.log(dataList)
     return (
       <div className="h-[fit] my-1 lg:py-2 py-1 lg:mx-4 mx-8 lg:px-8 px-2">
         <div className="lg:px-0">
           <div className="flex px-1">
             <div className="h-[3px] lg:h-[5px] lg:w-[60px] w-[25px] lg:mt-4 mt-2 bg-[#D100C9]"></div>{" "}
-              <span className="text-[16px] lg:text-[28px] px-1 lg:px-2">Cases studies</span>
+              <span className="text-[16px] lg:text-[28px] px-1 lg:px-2 font-displayRegular">Cases studies</span>
             </div>
                  {
                   showCase ?  <Carousel
@@ -65,7 +68,7 @@ const Cases = () => {
                   className="text-white"
                 >
                   
-                {dataList.map((item, index) => (
+                {/* {dataList.map((item, index) => (
                       <div
                       key={index}
                       className="lg:py-4 py-2 col-span-1 align-baseline content-baseline  relative text-start  my-1 mx-1 lg:mx-1 lg:px-8 px-4 lg:h-[450px] lg:max-h-[450px] max-h-[250px] h-[250px]"
@@ -84,7 +87,22 @@ const Cases = () => {
                       <p>{item.description}</p> 
                   </div>
                   </div>
-                  ))}
+                  ))} */}
+                  <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4">
+      {dataList.map((item, index) => (
+        <GenericCard
+          key={index}
+          title={item.title}
+          content={item.description}
+          imageUrl={item.imageUrl}
+          onClick={() => {
+            // Add click event logic if needed
+          }}
+        >
+        <LabelCard title={item.title} description={item.content}/>
+        </GenericCard>
+      ))}
+    </div>
         </Carousel> :<>Wait a moment for us to check if we have anything new</>
                  }
         </div> 

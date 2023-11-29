@@ -15,7 +15,7 @@ const Home=()=>{
         <div className=" bg-confidence  h-[450px]  text-white relative lg:min-h-[500px] lg:mb-2 mb-1 lg:py-2 py-1  lg:px-8 px-2">    
           <div className="lg:px-2 px-1 py-4">
           <div className="align-baseline absolute bottom-0 mx-4 my-4">
-            <h1 className="p2-4 font-bold text-[24px] lg:text-[36px]">Live with Confidence</h1>
+            <h1 className="p2-4 font-[700] text-[24px] lg:text-[36px] font-accentureExtarBold">Live with Confidence</h1>
             <p className="py-2 ">Jose Mourinho brings confidence to pan-African Sanlam campaign</p>
             <Link
                 to="/projects"  

@@ -27,17 +27,28 @@
   display: none;
 }
 @font-face {
-    font-family: "light";
-    src: url("../src/assets/fonts/fonts/Inter-Light.ttf");
-  }
-@font-face {
-    font-family: "bold";
-    src: url("../src/assets/fonts/fonts/InterDisplay-Bold.ttf");
-  }
-@font-face {
-    font-family: "italic";
-    src: url("../src/assets/fonts/fonts/Inter-Italic.ttf");
-  }
+  font-family: "light";
+  src: url("../src/assets/fonts/fonts/Inter-Light.ttf") format('ttf');
+  font-display: swap;
 
-
-  
+}
+@font-face {
+  font-family: "displayBold";
+  src: url("../src/assets/fonts/fonts/InterDisplay-Bold.ttf") format('ttf');
+  font-display: swap;
+}
+@font-face {
+  font-family: "displayBlack";
+  src: url("../src/assets/fonts/fonts/InterDisplay-Black.ttf") format('ttf');
+  font-display: swap;
+}
+@font-face {
+  font-family: "displayRegular";
+  src: url("../src/assets/fonts/fonts/InterDisplay-Regular.ttf") format('ttf');
+  font-display: swap;
+}
+@font-face {
+  font-family: "extraBold";
+  src: url("../src/assets/fonts/fonts/Inter-ExtraBold.ttf") format('ttf');
+  font-display: swap;
+}
